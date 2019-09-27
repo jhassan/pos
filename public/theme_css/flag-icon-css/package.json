@@ -1,0 +1,112 @@
+{
+  "_args": [
+    [
+      "flag-icon-css@^3.3.0",
+      "/var/www/html/coreui"
+    ]
+  ],
+  "_from": "flag-icon-css@>=3.3.0 <4.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "flag-icon-css@3.4.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/flag-icon-css",
+  "_nodeVersion": "10.16.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/flag-icon-css_3.4.0_1568971642121_0.45034981128191043"
+  },
+  "_npmUser": {
+    "email": "lipiridis@gmail.com",
+    "name": "lipis"
+  },
+  "_npmVersion": "6.9.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "flag-icon-css",
+    "raw": "flag-icon-css@^3.3.0",
+    "rawSpec": "^3.3.0",
+    "scope": null,
+    "spec": ">=3.3.0 <4.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/flag-icon-css/-/flag-icon-css-3.4.0.tgz",
+  "_shasum": "7356dc73641a6406efd21783d73cabd589046f99",
+  "_shrinkwrap": null,
+  "_spec": "flag-icon-css@^3.3.0",
+  "_where": "/var/www/html/coreui",
+  "author": {
+    "email": "lipiridis@gmail.com",
+    "name": "Panayiotis Lipiridis"
+  },
+  "bugs": {
+    "url": "https://github.com/lipis/flag-icon-css/issues"
+  },
+  "dependencies": {},
+  "description": "> A collection of all country flags in SVG — plus the CSS for easier integration. > See the [demo](http://flag-icon-css.lip.is).",
+  "devDependencies": {
+    "grunt": "1.0.4",
+    "grunt-contrib-connect": "2.1.0",
+    "grunt-contrib-cssmin": "3.0.0",
+    "grunt-contrib-less": "2.0.0",
+    "grunt-contrib-watch": "1.1.0",
+    "husky": "3.0.5",
+    "lint-staged": "9.2.5",
+    "prettier": "1.18.2",
+    "svgo": "1.3.0"
+  },
+  "directories": {},
+  "dist": {
+    "fileCount": 542,
+    "integrity": "sha512-5W4a1QBmej8yTJKbr+hX2gwgk21Wd3Pe3sEHpLVBSfcfnxR/C7QGHq01zViW5JIsw2vbYroGAqbUFe8APEZygg==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJdhJt6CRA9TVsSAnZWagAA7d0P/2kEBJA3I3aNDtQvv6y3\n/mKH9aAR1PtVK8v3bqi57rXR9aLbALa74TE6akZ550HtDX/8bOO8DGR7gR56\nvRtnle2S8muhkGtpIvrla3m4S0Q1VnS/I0Pb+Cy1Vdmhigtikzt1KqKthL34\nQMuu8kFAPyAaG0Z4Bj82CndijoMoIq3uCpxZAYJvReF2PKEBZ8hRueq2iAO6\n29MQaiMybRC68RG7BHdOkrUjFc+07ChnlPrN83s1QR4zhU5k0tg3cFPSSCR6\nEtLFl/tJhNyjzCx8CMP633/sPEPsHTz500owixsrGFpZIjk2Qtu5Nh6JChg/\n2cgC2KdMG1fGQNXACUGMNRYUqX90W/801u9zE8o4tIffKLLfretycfgI6/wl\nESA4WNk4KA//uyjDpyY0rrCyeUZUtOnjrshO8w8WPrK0Lbz4laOSZHBvPP38\nzKIOUbycgwjzkOmHjel449vIo3jsswTPQdogNP/GXjG2FJ0hSjURm3c2Ky1L\nnPscvoqHwzCGFQAhEZGX5YucDLmMaoIaF2fTJj4O0mFx2JyfEHAmVKUU8WaL\n2y3gvz4vghWREjh3kM/HrdW3Wp/oqh0ELLjOz/cOtJdEXVSstyfcMs6P2cHz\nxO5cyi3wwCLZ4mYTeqJwXhMhZ8edmzBQ8SdohDg6TrMHj/ghqMSox01996CW\nuoz6\r\n=NJop\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "7356dc73641a6406efd21783d73cabd589046f99",
+    "tarball": "https://registry.npmjs.org/flag-icon-css/-/flag-icon-css-3.4.0.tgz",
+    "unpackedSize": 4860096
+  },
+  "gitHead": "3b6b30073bafe944ea7021b89588dab7818e8aee",
+  "homepage": "https://github.com/lipis/flag-icon-css#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "lint-staged": {
+    "*.{json,md,scss,less,yaml,yml}": [
+      "git add",
+      "prettier --write"
+    ]
+  },
+  "maintainers": [
+    {
+      "name": "lipis",
+      "email": "lipiridis@gmail.com"
+    }
+  ],
+  "name": "flag-icon-css",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lipis/flag-icon-css.git"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "fix": "yarn prettier --write",
+    "prettier": "prettier \"**/*.{json,md,scss,less,yaml,yml}\"",
+    "svgo": "svgo --pretty --indent=2 --precision=1 --config=svgo.yaml",
+    "svgo:all": "find flags | grep '\\.svg$' | xargs -Iz -n 1 yarn svgo z",
+    "svgo:min": "find flags | grep '\\.svg$' | xargs -Iz -n 1 svgo --config=svgo.yaml z",
+    "test": "yarn prettier --list-different"
+  },
+  "version": "3.4.0"
+}
