@@ -30,11 +30,16 @@
     <link href="{{ asset('theme_css/pace-progress/css/pace.min.css') }}" rel="stylesheet">
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-  @include('includes.header')
+  @if(Auth::check())
+    @include('admin.includes.header')
+  @endif
   <div class="app-body">
-      @include('includes.sidebar')
+    @if(Auth::check())
+      @include('admin.includes.sidebar')
+    @endif
       <main class="main">
         <!-- Breadcrumb-->
+        @if(Auth::check())
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
           <li class="breadcrumb-item">
@@ -54,6 +59,7 @@
             </div>
           </li>
         </ol>
+        @endif
         @yield('content')
       </main>
       <aside class="aside-menu">
@@ -81,7 +87,7 @@
               <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</div>
               <div class="list-group-item list-group-item-accent-warning list-group-item-divider">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Meeting with
                   <strong>Lucas</strong>
@@ -93,7 +99,7 @@
               </div>
               <div class="list-group-item list-group-item-accent-info">
                 <div class="avatar float-right">
-                  <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/4.jpg')}}" alt="admin@bootstrapmaster.com">
                 </div>
                 <div>Skype with
                   <strong>Megan</strong>
@@ -114,19 +120,19 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/2.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/3.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/4.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/5.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/6.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -148,25 +154,25 @@
                   <i class="icon-home"></i>  creativeLabs HQ</small>
                 <div class="avatars-stack mt-2">
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/2.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/3.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/4.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/5.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/6.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                   <div class="avatar avatar-xs">
-                    <img class="img-avatar" src="img/avatars/8.jpg" alt="admin@bootstrapmaster.com">
+                    <img class="img-avatar" src="{{url('img/avatars/8.jpg')}}" alt="admin@bootstrapmaster.com">
                   </div>
                 </div>
               </div>
@@ -176,7 +182,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -191,7 +197,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -206,7 +212,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -221,7 +227,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -236,7 +242,7 @@
             <div class="message">
               <div class="py-3 pb-5 mr-3 float-left">
                 <div class="avatar">
-                  <img class="img-avatar" src="img/avatars/7.jpg" alt="admin@bootstrapmaster.com">
+                  <img class="img-avatar" src="{{url('img/avatars/7.jpg')}}" alt="admin@bootstrapmaster.com">
                   <span class="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -342,7 +348,9 @@
         </div>
       </aside>
     </div>
-  @include('includes.footer')
+  @if(Auth::check())
+    @include('admin.includes.footer')
+  @endif
   <!-- CoreUI and necessary plugins-->
     <script src="{{ asset('theme_js/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('theme_js/popper.js/dist/umd/popper.min.js') }}"></script>
