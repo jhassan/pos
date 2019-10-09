@@ -10,13 +10,19 @@
             <strong>Add User</strong>
             <small>Form</small>
           </div>
-          <form role="form" action="" method="POST">
+          @if ($message = Session::get('success'))
+              <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+              </div>
+          @endif
+          <form role="form" action="{{ route('add.user') }}" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="card-body">
               <div class="row">
                 <div class="form-group col-sm-4">
                     <label for="first_name">First Name *</label>
                     <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" value="{{{ Request::old('first_name') }}}">
+                    {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
                 </div>
                 <div class="form-group col-sm-4">
                     <label for="last_name">Last Name *</label>
@@ -67,15 +73,32 @@
                   <div class="dropdown col-sm-4">
                   <label for="shop" >Shop</label>
                   <select class="form-control" title="Select Shop..." name="shop_id">
-                      <option value="">Select</option>
-                      <option value="3">Cafe Cappellos</option>
-                      <option value="2">Ghulshan Market New Multan</option>
-                      <option value="1">3rd Floor Unitd Mall Multan</option>
+                    <option value="">Select</option>
+                    @foreach ($shops as $shop)
+                    <option value="{{{ $shop->id}}}"  >{{{ $shop->shop_name}}}</option>
+                    @endforeach
                   </select>
                 </div>
-                <?php print_r($parentPermission); ?>
+                <div class="clear"></div>
+                <div class="form-group col-md-12 pull-left" style=" margin-top: 20px;">
+                    <input type="checkbox" id="checkAll"/> <label style="font-size: 14px;">Check All</label>
+                  </div>
 
-
+                @foreach($parentPermission as $parent)
+                <div class="form-group row col-md-12">
+                  <label class="col-md-12 col-form-label"><strong>{{ ucfirst($parent->name) }}</strong></label>
+                  @foreach($childPermission as $child)
+                    @if($child->parent_id == $parent->id)
+                  <div class="col-md-3 col-form-label">
+                    <div class="form-check form-check-inline mr-1">
+                      <input class="form-check-input checkedAll" name="permission[{{$child->id}}]" type="checkbox" value="{{ $child->id }}" id="{{ $child->id }}">
+                      <label class="form-check-label" for="inline-checkbox1">{{ ucfirst($child->name) }}</label>
+                    </div>
+                  </div>
+                  @endif
+                  @endforeach
+                </div>
+                @endforeach
               </div>
               <!--  end row -->
 
@@ -91,4 +114,31 @@
     <!-- /.row-->
   </div>
 </div>
+@endsection
+@section('footer_scripts')
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+    // Hide permission div
+    $("#get_user_type").change(function (){
+      var value = $(this).val();
+      if(value == 1)
+        $("#permission_block").addClass('hide');
+      else
+        $("#permission_block").removeClass('hide');
+    });
+
+    $("#checkAll").change(function () {
+        $("input:checkbox.checkedAll").prop('checked', $(this).prop("checked"));
+    });
+    $(".cb-element").change(function () {
+        _tot = $(".cb-element").length
+        _tot_checked = $(".checkedAll:checked").length;
+
+        if(_tot != _tot_checked){
+          $("#checkAll").prop('checked',false);
+        }
+    });
+  });
+  </script>
 @endsection

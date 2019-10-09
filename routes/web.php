@@ -45,12 +45,13 @@ Route::group(
 	array('prefix' => 'admin/users'), function () {
 		Route::get('add', array('as' => 'add/user', 'uses' => 'UserController@create'));
     Route::get('/', array('as' => 'users', 'uses' => 'UserController@index'));
-		Route::post('add', 'UsersController@createUser');
-    Route::get('{id}/edit', array('as' => 'users.update', 'uses' => 'UsersController@getEdit'));
-		Route::post('{id}/edit', 'UsersController@postEdit');
-		Route::get('delete_user', array('as'=>'delete_user', 'uses' => 'UsersController@delete_user'));
-		Route::get('{id}/delete', array('as' => 'delete/banner', 'uses' => 'UsersController@getDelete'));
-		Route::get('{id}/confirm-delete', array('as' => 'confirm-delete/user', 'uses' => 'UsersController@getModalDelete'));
+    Route::post('add', array('as' => 'add.user', 'uses' => 'UserController@store'));
+    //Route::post('add', 'UserController@store');
+    Route::get('{id}/edit', array('as' => 'users.update', 'uses' => 'UserController@getEdit'));
+		Route::post('{id}/edit', 'UserController@postEdit');
+		Route::get('delete_user', array('as'=>'delete_user', 'uses' => 'UserController@delete_user'));
+		Route::get('{id}/delete', array('as' => 'delete/banner', 'uses' => 'UserController@getDelete'));
+		Route::get('{id}/confirm-delete', array('as' => 'confirm-delete/user', 'uses' => 'UserController@getModalDelete'));
 
 		//Route::get('{id}', array('as' => 'users.show', 'uses' => 'UsersController@show'));
 	});

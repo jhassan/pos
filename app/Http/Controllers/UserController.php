@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use App\User;
+use Validator;
+use Input;
 
 
 class UserController extends Controller
@@ -28,7 +30,9 @@ class UserController extends Controller
     {
       $data = new User;
       $parentPermission = $data->all_parent_permission();
-      return View('admin.users.create', compact('parentPermission'));
+      $childPermission = $data->all_child_permission();
+      $shops = $data->all_shops();
+      return View('admin.users.create', compact('parentPermission', 'childPermission', 'shops'));
     }
 
     /**
@@ -39,7 +43,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules = array(
+              'first_name'   => 'required',
+              'last_name'    => 'required',
+  			      'email'        => 'required|email|unique:users',
+  			      'password'     => 'required|min:5',
+  			      'login_name'   => 'required',
+  			      'gender'       => 'required',
+  			      'user_type'    => 'required',
+      );
+
+      // Create a new validator instance from our validation rules
+      $validator = Validator::make(Input::all(), $rules);
+
+      // If validation fails, we'll exit the operation now.
+      if ($validator->fails()) {
+		       return Redirect::back()->withInput()->withErrors($validator);
+      }
+
+      User::create($request->all());
+
+      return redirect()->route('users.add')
+                      ->with('success','Product created successfully.');
     }
 
     /**

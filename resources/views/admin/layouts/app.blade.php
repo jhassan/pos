@@ -28,6 +28,9 @@
     <!-- Main styles for this application-->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('theme_css/pace-progress/css/pace.min.css') }}" rel="stylesheet">
+    <style type="text/css">
+      .clear{ clear: both;}
+    </style>
 </head>
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
   @if(Auth::check())
@@ -361,5 +364,6 @@
     <script src="{{ asset('theme_js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('theme_css/coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    @yield('footer_scripts')
 </body>
 </html>
