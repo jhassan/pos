@@ -68,4 +68,9 @@ class User extends Authenticatable
     public function all_shops(){
       return DB::table('shops')->orderBy('id', 'desc')->get();
     }
+
+    // getl all users
+    public function all_users(){
+      return DB::table('users')->orderBy('id', 'desc')->paginate(10);
+    }
 }

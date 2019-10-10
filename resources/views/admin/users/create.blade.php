@@ -10,9 +10,13 @@
             <strong>Add User</strong>
             <small>Form</small>
           </div>
-          @if ($message = Session::get('success'))
-              <div class="alert alert-success">
-                  <p>{{ $message }}</p>
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
               </div>
           @endif
           <form role="form" action="{{ route('add.user') }}" method="POST">
@@ -22,7 +26,6 @@
                 <div class="form-group col-sm-4">
                     <label for="first_name">First Name *</label>
                     <input type="text" name="first_name" class="form-control" id="first_name" placeholder="First Name" value="{{{ Request::old('first_name') }}}">
-                    {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
                 </div>
                 <div class="form-group col-sm-4">
                     <label for="last_name">Last Name *</label>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use View;
 use App\User;
 use Validator;
-use Input;
+use Auth;
 
 
 class UserController extends Controller
@@ -18,7 +18,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return View('admin.users.index');
+        $data = new User;
+        $users = $data->all_users();
+        // Get the currently authenticated user's ID...
+        $user_permission = Auth::id();
+        return View('admin.users.index', compact('users', 'user_permission'));
     }
 
     /**
@@ -43,28 +47,36 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      $rules = array(
-              'first_name'   => 'required',
-              'last_name'    => 'required',
-  			      'email'        => 'required|email|unique:users',
-  			      'password'     => 'required|min:5',
-  			      'login_name'   => 'required',
-  			      'gender'       => 'required',
-  			      'user_type'    => 'required',
-      );
+      $validatedData = $request->validate([
+        'first_name'   => 'required',
+        'last_name'    => 'required',
+        'email'  => 'required|email|unique:users',
+  			'password'  => 'required|min:5',
+  			'login_name'  => 'required',
+  			'gender'  => 'required',
+  			'user_type'  => 'required',
+      ]);
+      $data = new User();
+  		$permission_checked = $request->permission;
+  		if(!empty($permission_checked))
+          	$arrayChickList = implode(',', $permission_checked);
+  		else
+  			$arrayChickList = "";
+  		$data->first_name = $request->first_name;
+  		$data->last_name = $request->last_name;
+  		$data->password = bcrypt($request->password);
+  		$data->login_name = $request->login_name;
+  		$data->gender = $request->gender;
+  		$data->email = $request->email;
+  		$data->city = $request->city;
+  		$data->address = $request->address;
+  		$data->shop_id = (int)$request->shop_id;
+  		$data->user_type = (int)$request->user_type;
+  		$data->user_permission = $arrayChickList;
 
-      // Create a new validator instance from our validation rules
-      $validator = Validator::make(Input::all(), $rules);
-
-      // If validation fails, we'll exit the operation now.
-      if ($validator->fails()) {
-		       return Redirect::back()->withInput()->withErrors($validator);
-      }
-
-      User::create($request->all());
-
-      return redirect()->route('users.add')
-                      ->with('success','Product created successfully.');
+  		if($data->save()){
+  			return redirect()->route("users")->with('message','User added successfully!');
+  		}
     }
 
     /**
