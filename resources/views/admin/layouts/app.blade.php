@@ -24,6 +24,7 @@
     <link href="{{ asset('theme_css/flag-icon-css/css/flag-icon.min.css') }}" rel="stylesheet">
     <link href="{{ asset('theme_css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('theme_css/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('theme_css/bootstrap-datetimepicker.css')}}">
     <!-- <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" /> -->
     <!-- Main styles for this application-->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
@@ -364,6 +365,14 @@
     <script src="{{ asset('theme_js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('theme_css/coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <!-- datepicker -->
+    <script src="{{asset('theme_js/bootstrap-datepicker.js')}}"></script>
+    <script>
+      $(document).ready(function(){
+          $(".date-pick").datepicker('setDate', new Date());
+      });
+
+    </script>
     @yield('footer_scripts')
 </body>
 </html>

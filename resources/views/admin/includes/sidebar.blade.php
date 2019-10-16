@@ -22,7 +22,22 @@
           </li>
         </ul>
       </li>
-      
+
+      <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+          <i class="nav-icon icon-puzzle"></i> Manage Accounts</a>
+        <ul class="nav-dropdown-items">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::to('admin/accounts/all_vouchers') }}">
+              <i class="nav-icon icon-puzzle"></i>List of Transections</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ URL::to('admin/accounts/sale_summery') }}">
+              <i class="nav-icon icon-puzzle"></i> Sale Summery</a>
+          </li>
+        </ul>
+      </li>
+
     </ul>
   </nav>
   <button class="sidebar-minimizer brand-minimizer" type="button"></button>
